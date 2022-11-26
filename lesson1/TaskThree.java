@@ -1,5 +1,5 @@
 // Реализовать простой калькулятор
-package lesson_one;
+package lesson1;
 
 import java.util.Scanner;
 
