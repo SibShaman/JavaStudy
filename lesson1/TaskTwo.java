@@ -1,20 +1,20 @@
 // Вывести все простые числа от 1 до 1000
-package lesson_1;
+package lesson1;
+
 
 public class TaskTwo {
     public static void main(String[] args) {
-        int num = 0;
+              
+        boolean cheсk = true;
         for (int i = 2; i <= 1000; i++) {
             for (int j = 2; j < i; j++) {
-                if (i%j == 0){
+                if (i % j == 0) {
+                    cheсk = false;
                     break;
                 }
-                else{
-                    num = i;
-                }
-            System.out.println(num);    
             }
-        
+            if (cheсk) System.out.println(i);
+            else cheсk = true;
         }
     }
 }
