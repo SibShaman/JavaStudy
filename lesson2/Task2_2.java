@@ -1,19 +1,29 @@
 package lesson2;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Task2_2 {
     // Реализуйте алгоритм сортировки пузырьком числового массива, результат после
     // каждой итерации запишите в лог-файл.
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
+        // добавление логгера
+        Logger logger = Logger.getLogger(Task2_2.class.getName());
+        FileHandler fileHandler = new FileHandler("lesson2/test.log", true);
+        logger.addHandler(fileHandler);
+        //заполнение массива случайными числами
         int[] data = new int[20];
         for (int i = 0; i < data.length; i++) {
             Random rand = new Random();
             data[i] = rand.nextInt(100);
         }
         System.out.printf("Вывод неотсортированного массива: %s\n", Arrays.toString(data));
-
+        //Сортировка пузырьком
         int i = 0;
         boolean flag = true;
         while (i < data.length - 1) {
@@ -23,6 +33,7 @@ public class Task2_2 {
                     int temp = data[j - 1];
                     data[j - 1] = data[j];
                     data[j] = temp;
+                    logger.log(Level.INFO, "Hello logging: {0}", temp);
                     flag = true;
                 }
             }
@@ -31,6 +42,7 @@ public class Task2_2 {
             }
             i++;
         }
+
         System.out.printf("Вывод отсортированного массива: %s\n", Arrays.toString(data));
     }
 }
