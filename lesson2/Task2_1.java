@@ -6,7 +6,6 @@ package lesson2;
 // Для разбора строки используйте String.split. Сформируйте новую строку, используя StringBuilder. Значения null не включаются в запрос.
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -16,7 +15,7 @@ public class Task2_1 {
 
         // Читаем из файла и запысываем в StringBuilder sb
         StringBuilder sb = new StringBuilder();
-        try(BufferedReader br = new BufferedReader(new FileReader(new File("lesson2/person.json")))){
+        try(BufferedReader br = new BufferedReader(new FileReader("lesson2/person.json"))){
             String data;
             while ((data = br.readLine()) != null){
                 sb.append(data);
