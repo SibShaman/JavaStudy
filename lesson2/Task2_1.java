@@ -8,6 +8,8 @@ package lesson2;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Task2_1 {
@@ -24,8 +26,16 @@ public class Task2_1 {
             e.printStackTrace();
         }
         System.out.println(sb);
-
-
-
+        Map<String, String> dictionary = new HashMap<String, String>();
+        //Парсим строку и убираем лишние символы
+        String[] keys = sb.toString().replace("{ ", " ").replace("}", " ").split(", ");
+        for (String data: keys) {
+            String[] keyValue = data.split(": ");
+            String key = keyValue[0];
+            String  value = keyValue[1];
+//          SELECT * FROM students WHERE name = "Ivanov" AND country = "Russia" AND city = "Moscow";
+            dictionary.put(key, value);
+        }
+        System.out.println(dictionary.toString());
     }
 }
