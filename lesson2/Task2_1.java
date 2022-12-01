@@ -25,17 +25,23 @@ public class Task2_1 {
         } catch (IOException e){
             e.printStackTrace();
         }
-        System.out.println(sb);
-        Map<String, String> dictionary = new HashMap<String, String>();
-        //Парсим строку и убираем лишние символы
-        String[] keys = sb.toString().replace("{ ", " ").replace("}", " ").split(", ");
+
+        Map<String, String> dictionary = new HashMap<>();
+        //Парсим строку, убираем лишние символы и записываем данные в словарь
+        String[] keys = sb.toString().replace("{", "").replace("\"", "").
+                replace("}", "").replaceAll("\\s", "").split(",");
         for (String data: keys) {
-            String[] keyValue = data.split(": ");
+            String[] keyValue = data.split(":");
             String key = keyValue[0];
             String  value = keyValue[1];
-//          SELECT * FROM students WHERE name = "Ivanov" AND country = "Russia" AND city = "Moscow";
             dictionary.put(key, value);
         }
-        System.out.println(dictionary.toString());
+        System.out.println(dictionary);
+        // Вывод из словаря в вид согласно ТЗ
+        String name = dictionary.get("name");
+        String country = dictionary.get("country");
+        String city = dictionary.get("city");
+        System.out.printf("SELECT * FROM students WHERE name = %s AND country = %s AND city = %s", name,
+                country, city);
     }
 }
