@@ -10,11 +10,9 @@ package lesson2;
 // Студент Петрова получил 4 по предмету Информатика.
 // Студент Краснов получил 5 по предмету Физика.
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,10 +27,8 @@ public class Task2_3 {
         } catch (IOException e){
             e.printStackTrace();
         }
-        // создание списка словарей
-        ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();
-        // и конечно сам словарь
-        Map<String,String> map = new HashMap<String, String>();
+        // создание словаря
+        Map<String,String> map = new HashMap<>();
 
         //Парсим строку, убираем лишние символы и записываем данные в словарь
         String[] keys = sb.toString().replace("{", "").
@@ -40,12 +36,18 @@ public class Task2_3 {
                 replace("]", "").
                 replace("\"", "").
                 replaceAll("\\s", "").
-                split("}");
+                split("},");
+
         for (String data: keys) {
-            System.out.println(data);
-
+            String[] person = data.split(",");
+                for (String keyValues: person) {
+                String[] keyValue = keyValues.replace("}", "").split(":");
+                String key = keyValue[0];
+                String  value = keyValue[1];
+                map.put(key, value);
+            }
+            System.out.printf("Студент %s получил %s по предмету %s.\n", map.get("фамилия"),
+                    map.get("оценка"), map.get("предмет"));
         }
-
-//        System.out.println(dictionary);
     }
 }
