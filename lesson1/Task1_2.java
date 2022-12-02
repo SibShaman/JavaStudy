@@ -2,7 +2,7 @@
 package lesson1;
 
 
-public class TaskTwo {
+public class Task1_2 {
     public static void main(String[] args) {
               
         boolean cheсk = true;
