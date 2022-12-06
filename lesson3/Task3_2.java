@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Task3_2 {
     public static void main(String[] args) {
-        ArrayList<Integer> my_list = new ArrayList<>();
+        ArrayList<Integer> my_list = new ArrayList<Integer>();
         Random rand = new Random();
 
         for (int i = 0; i < 10; i++) {

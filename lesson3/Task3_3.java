@@ -2,7 +2,9 @@ package lesson3;
 
 //Задан целочисленный список ArrayList. Найти минимальное, максимальное и среднее арифметичское этого списка.
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class Task3_3 {
     public static void main(String[] args) {
