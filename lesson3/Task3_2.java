@@ -22,6 +22,7 @@ public class Task3_2 {
                 i--;
             }
         }
+
         System.out.println(my_list);
     }
 }
