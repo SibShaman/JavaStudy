@@ -5,27 +5,40 @@ package lesson5;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Task5_1 {
     public static void main(String[] args) {
-        //список словарей (по задумке, индекс списка это id контакта, словарь соответственно это телефонная книга)
         HashMap<ArrayList<String>, HashMap<String, String>> phoneBook = new HashMap<>();
         ArrayList<String> numberPhone = new ArrayList<>();
         HashMap<String, String> keyValues = new HashMap<>();
 
+        phoneBook.put(addNumberPhone(numberPhone), addDescription(keyValues));
+        System.out.println(phoneBook);
     }
 
     public static ArrayList<String> addNumberPhone(ArrayList<String> number){
         //numberPhone - список  который потом будет заноситься в ключ словаря phoneBook
+        Scanner isScanner = new Scanner(System.in);
+        System.out.println("Введите номер телефона:");
+        String inPhone = isScanner.nextLine();
+        number.add(inPhone);
         return number;
     }
 
     public static HashMap<String,String> addDescription(HashMap<String, String> keyValue) {
         // В общем это словарь значений, который потом заносится в словарь phoneBook
-        // firstName
-        // secondName
-        // description
+        Scanner isScanner = new Scanner(System.in);
+        System.out.println("Введите имя:");
+        String firstNameValue = isScanner.nextLine();
+        System.out.println("Введите фамилию:");
+        String secondNameValue = isScanner.nextLine();
+        System.out.println("Введите описание:");
+        String descriptionValue = isScanner.nextLine();
 
+        keyValue.put("firstName", firstNameValue);
+        keyValue.put("secondName", secondNameValue);
+        keyValue.put("description", descriptionValue);
 
         return keyValue;
     }
