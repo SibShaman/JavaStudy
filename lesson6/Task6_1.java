@@ -14,4 +14,7 @@ package lesson6;
 
 
 public class Task6_1 {
+    public static void main(String[] args) {
+//        NoteBook noteBook = new NoteBook();
+    }
 }
