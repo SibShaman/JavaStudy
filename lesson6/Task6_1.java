@@ -14,16 +14,18 @@ package lesson6;
 //Далее нужно запросить минимальные значения для указанных критериев - сохранить параметры фильтрации можно также в Map.
 //Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
 
-
+import java.util.Map;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class Task6_1 {
     public static void main(String[] args) {
         HashSet<NoteBook> shop = new HashSet<>();
         addNoteBook(shop);
-
-
-        System.out.println(shop);
+        HashMap<String, String> filters = new HashMap<>();
+        System.out.println(menu(filters));
+//        System.out.println(shop);
     }
     public static HashSet<NoteBook> addNoteBook(HashSet<NoteBook> addshop){
         NoteBook LenovoNS = new NoteBook("Lenovo", "NS2332", "15", "8Gb", "1TB", "Linux", "black");
@@ -49,13 +51,35 @@ public class Task6_1 {
     //Далее нужно запросить минимальные значения для указанных критериев - сохранить параметры фильтрации можно также в Map.
     //Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
 
-    public static HashSet<NoteBook> filterNoteBook(HashSet<NoteBook> filtershop){
-//        for (NoteBook notebook : filtershop) {
-//
-//        }
+    public static HashMap<String,String> menu(HashMap<String,String> filters){
+        System.out.println("Введите цифру, соответствующую необходимому критерию");
+        int choice = new Scanner(System.in).nextInt();
+        switch (choice){
+            case 1:
+                System.out.println("Выберите производителя");
+                String brand = new Scanner(System.in).nextLine();
+                filters.put("brand", brand);
+            case 2:
+                System.out.println("Выберите объем жесткого диска");
+                String harDdisk = new Scanner(System.in).nextLine();
+                filters.put("hardDisk", harDdisk);
+            case 3:
+                System.out.println("Выберите объем оперативной памяти");
+                String operativeMemory = new Scanner(System.in).nextLine();
+                filters.put("operativeMemory", operativeMemory);
 
-
-        return filtershop;
+            case 4:
+                System.out.println("Выберите операционную систему");
+                String system = new Scanner(System.in).nextLine();
+                filters.put("system", system);
+            case 5:
+                System.out.println("Выберите цвет ноутбука");
+                String color = new Scanner(System.in).nextLine();
+                filters.put("color", color);
+            default:
+                break;
+        }
+        return filters;
     }
 
 }
