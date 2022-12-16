@@ -52,33 +52,49 @@ public class Task6_1 {
     //Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
 
     public static HashMap<String,String> menu(HashMap<String,String> filters){
-        System.out.println("Введите цифру, соответствующую необходимому критерию");
-        int choice = new Scanner(System.in).nextInt();
-        switch (choice){
-            case 1:
-                System.out.println("Выберите производителя");
-                String brand = new Scanner(System.in).nextLine();
-                filters.put("brand", brand);
-            case 2:
-                System.out.println("Выберите объем жесткого диска");
-                String harDdisk = new Scanner(System.in).nextLine();
-                filters.put("hardDisk", harDdisk);
-            case 3:
-                System.out.println("Выберите объем оперативной памяти");
-                String operativeMemory = new Scanner(System.in).nextLine();
-                filters.put("operativeMemory", operativeMemory);
+        Scanner ch = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("Меню ");
+            System.out.println("1. Выберите производителя");
+            System.out.println("2. Выберите объем жесткого диска");
+            System.out.println("3. Выберите объем оперативной памяти");
+            System.out.println("4. Выберите операционную систему");
+            System.out.println("5. Выберите цвет ноутбука");
+            System.out.println("Для выхода нажмите 0");
+            System.out.println("Введите цифру, соответствующую необходимому критерию");
+            choice = ch.nextInt();
 
-            case 4:
-                System.out.println("Выберите операционную систему");
-                String system = new Scanner(System.in).nextLine();
-                filters.put("system", system);
-            case 5:
-                System.out.println("Выберите цвет ноутбука");
-                String color = new Scanner(System.in).nextLine();
-                filters.put("color", color);
-            default:
-                break;
-        }
+            switch (choice) {
+                case 1:
+                    System.out.println("Введите название производителя, либо нажмите Enter для перехода к следующему пункту");
+                    String brand = new Scanner(System.in).nextLine();
+                    filters.put("brand", brand);
+                    break;
+                case 2:
+                    System.out.println("Введите объем жесткого диска, либо нажмите Enter для перехода к следующему пункту");
+                    String hardDisk = new Scanner(System.in).nextLine();
+                    filters.put("hardDisk", hardDisk);
+                    break;
+                case 3:
+                    System.out.println("Введитеобъем оперативной памяти, либо нажмите Enter для перехода к следующему пункту");
+                    String operativeMemory = new Scanner(System.in).nextLine();
+                    filters.put("operativeMemory", operativeMemory);
+                    break;
+                case 4:
+                    System.out.println("Введите операционную систему, либо нажмите Enter для перехода к следующему пункту");
+                    String system = new Scanner(System.in).nextLine();
+                    filters.put("system", system);
+                    break;
+                case 5:
+                    System.out.println("Введитецвет ноутбука, либо нажмите Enter");
+                    String color = new Scanner(System.in).nextLine();
+                    filters.put("color", color);
+                    break;
+                default:
+                    break;
+            }
+        }while (choice>0);
         return filters;
     }
 
