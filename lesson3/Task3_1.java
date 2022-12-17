@@ -39,11 +39,11 @@ public class Task3_1 {
         return resArray;
     }
 
-    public static int[] merge_sort(int[] array){
-        if (array.length<2) return array;
+    public static int[] merge_sort(int[] array) {
+        if (array.length < 2) return array;
 
-        int[] bufOneArray = new int[array.length/2];
-        System.arraycopy(array, 0 , bufOneArray, 0, array.length/2);
+        int[] bufOneArray = new int[array.length / 2];
+        System.arraycopy(array, 0, bufOneArray, 0, array.length / 2);
 
         int[] bufTwoArray = new int[array.length - bufOneArray.length];
         System.arraycopy(array, array.length / 2, bufTwoArray, 0, array.length - bufOneArray.length);

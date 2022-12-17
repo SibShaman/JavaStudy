@@ -24,13 +24,13 @@ public class Task4_2 {
     }
 
     //        enqueue() - помещает элемент в конец очереди,
-    public static LinkedList<Integer> enqueue(LinkedList<Integer> list, int num){
+    public static LinkedList<Integer> enqueue(LinkedList<Integer> list, int num) {
         list.addLast(num);
         return list;
     }
 
     //        dequeue() - возвращает первый элемент из очереди и удаляет его,
-    public static int dequeue(LinkedList<Integer> list){
+    public static int dequeue(LinkedList<Integer> list) {
         int num = list.getFirst();
         // System.out.printf("Первый элемент в списке: %s \n", list.getFirst());
         list.removeFirst();
@@ -38,7 +38,7 @@ public class Task4_2 {
     }
 
     //        first() - возвращает первый элемент из очереди, не удаляя
-    public static int first(LinkedList<Integer> list){
+    public static int first(LinkedList<Integer> list) {
         return list.getFirst();
     }
 

@@ -12,16 +12,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Task2_1 {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
 
         // Читаем из файла и запысываем в StringBuilder sb
         StringBuilder sb = new StringBuilder();
-        try(BufferedReader br = new BufferedReader(new FileReader("lesson2/person.json"))){
+        try (BufferedReader br = new BufferedReader(new FileReader("lesson2/person.json"))) {
             String data;
-            while ((data = br.readLine()) != null){
+            while ((data = br.readLine()) != null) {
                 sb.append(data);
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -29,10 +29,10 @@ public class Task2_1 {
         //Парсим строку, убираем лишние символы и записываем данные в словарь
         String[] keys = sb.toString().replace("{", "").replace("\"", "").
                 replace("}", "").replaceAll("\\s", "").split(",");
-        for (String data: keys) {
+        for (String data : keys) {
             String[] keyValue = data.split(":");
             String key = keyValue[0];
-            String  value = keyValue[1];
+            String value = keyValue[1];
             dictionary.put(key, value);
         }
         System.out.println(dictionary);

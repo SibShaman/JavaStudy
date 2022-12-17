@@ -25,7 +25,7 @@ public class Task3_3 {
         System.out.printf("Максимальное число в списке %d \n", max_num);
 
         int sum_list = my_list.stream().mapToInt(Integer::intValue).sum();
-        int average = sum_list/amount_elem;
+        int average = sum_list / amount_elem;
         System.out.printf("Среднее арифметическое в списке %d \n", average);
     }
 }

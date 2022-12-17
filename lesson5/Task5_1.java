@@ -17,7 +17,7 @@ public class Task5_1 {
         System.out.println(phoneBook);
     }
 
-    public static ArrayList<String> addNumberPhone(ArrayList<String> number){
+    public static ArrayList<String> addNumberPhone(ArrayList<String> number) {
         //numberPhone - список  который потом будет заноситься в ключ словаря phoneBook
         Scanner isScanner = new Scanner(System.in);
         System.out.println("Введите номер телефона:");
@@ -26,7 +26,7 @@ public class Task5_1 {
         return number;
     }
 
-    public static HashMap<String,String> addDescription(HashMap<String, String> keyValue) {
+    public static HashMap<String, String> addDescription(HashMap<String, String> keyValue) {
         // В общем это словарь значений, который потом заносится в словарь phoneBook
         Scanner isScanner = new Scanner(System.in);
         System.out.println("Введите имя:");

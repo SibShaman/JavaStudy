@@ -19,31 +19,31 @@ import java.util.Map;
 public class Task2_3 {
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
-        try(BufferedReader br = new BufferedReader(new FileReader("lesson2/rating.json"))){
+        try (BufferedReader br = new BufferedReader(new FileReader("lesson2/rating.json"))) {
             String data;
-            while ((data = br.readLine()) != null){
+            while ((data = br.readLine()) != null) {
                 sb.append(data);
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         // создание словаря
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
 
         //Парсим строку, убираем лишние символы и записываем данные в словарь
         String[] keys = sb.toString().replace("{", "").
-                replace("[","").
+                replace("[", "").
                 replace("]", "").
                 replace("\"", "").
                 replaceAll("\\s", "").
                 split("},");
 
-        for (String data: keys) {
+        for (String data : keys) {
             String[] person = data.split(",");
-                for (String keyValues: person) {
+            for (String keyValues : person) {
                 String[] keyValue = keyValues.replace("}", "").split(":");
                 String key = keyValue[0];
-                String  value = keyValue[1];
+                String value = keyValue[1];
                 map.put(key, value);
             }
             System.out.printf("Студент %s получил %s по предмету %s.\n", map.get("фамилия"),

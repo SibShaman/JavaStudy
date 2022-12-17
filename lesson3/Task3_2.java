@@ -17,7 +17,7 @@ public class Task3_2 {
         System.out.println(my_list);
 
         for (int i = 0; i < my_list.size(); i++) {
-            if (my_list.get(i)%2==0){
+            if (my_list.get(i) % 2 == 0) {
                 my_list.remove(my_list.get(i));
                 i--;
             }

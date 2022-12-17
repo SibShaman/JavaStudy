@@ -6,11 +6,11 @@ package lesson6;
 
 //Написать метод, который будет запрашивать у пользователя критерий (или критерии) фильтрации и выведет ноутбуки,
 // отвечающие фильтру. Критерии фильтрации можно хранить в Map. Например:
-    //“Введите цифру, соответствующую необходимому критерию:
-    //1 - ОЗУ
-    //2 - Объем ЖД
-    //3 - Операционная система
-    //4 - Цвет …
+//“Введите цифру, соответствующую необходимому критерию:
+//1 - ОЗУ
+//2 - Объем ЖД
+//3 - Операционная система
+//4 - Цвет …
 //Далее нужно запросить минимальные значения для указанных критериев - сохранить параметры фильтрации можно также в Map.
 //Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
 
@@ -21,26 +21,26 @@ public class Task6_1 {
         HashSet<NoteBook> shop = new HashSet<>();
         addNoteBook(shop);
         HashMap<String, String> filters = new HashMap<>();
-        menu(filters);
-        System.out.println(doFilter(shop,filters));
+        startMenu(filters);
+        System.out.println(runFilter(shop, filters));
     }
 
-    public static HashSet<NoteBook> addNoteBook(HashSet<NoteBook> addShop){
+    public static HashSet<NoteBook> addNoteBook(HashSet<NoteBook> product) {
         NoteBook LenovoNS = new NoteBook("Lenovo", "NS2332", "15", "8Gb", "1TB", "Linux", "black");
         NoteBook Mac = new NoteBook("Apple", "MacBook Pro", "14", "16Gb", "1TB", "Unix", "grey");
         NoteBook Huawei = new NoteBook("Huawei", "MateBook", "15", "16Gb", "2TB", "Windows10", "grey");
         NoteBook Asus = new NoteBook("ASUS", "ZenBook Flip", "13", "8Gb", "512GB", "Windows10", "blue");
 
-        addShop.add(LenovoNS);
-        addShop.add(Mac);
-        addShop.add(Huawei);
-        addShop.add(Asus);
+        product.add(LenovoNS);
+        product.add(Mac);
+        product.add(Huawei);
+        product.add(Asus);
 
-        return addShop;
+        return product;
     }
 
-    public static HashMap<String,String> menu(HashMap<String,String> filters){
-        Scanner ch = new Scanner(System.in);
+    public static HashMap<String, String> startMenu(HashMap<String, String> filters) {
+        Scanner isScanner = new Scanner(System.in);
         int choice;
         do {
             System.out.println("Меню ");
@@ -51,7 +51,7 @@ public class Task6_1 {
             System.out.println("5. Выберите цвет ноутбука");
             System.out.println("Для выхода нажмите 0");
             System.out.println("Введите цифру, соответствующую необходимому критерию");
-            choice = ch.nextInt();
+            choice = isScanner.nextInt();
 
             switch (choice) {
                 case 1:
@@ -82,58 +82,58 @@ public class Task6_1 {
                 default:
                     break;
             }
-        }while (choice>0);
+        } while (choice > 0);
         return filters;
     }
 
-    public static List<NoteBook> doFilter(HashSet<NoteBook> shop, HashMap<String,String> filters){
-            List<NoteBook> finalShop = new ArrayList<>();
+    public static List<NoteBook> runFilter(HashSet<NoteBook> product, HashMap<String, String> filters) {
+        List<NoteBook> productSelection = new ArrayList<>();
 
-            for(NoteBook notebook: shop){
-                String filterBrand = filters.get("brand");
-                if(filterBrand!=null
-                  && !filterBrand.equals(notebook.getBrand())) {
-                    continue;
-                }
-
-                String filterModel = filters.get("model");
-                if(filterModel!=null
-                        && !filterModel.equals(notebook.getModel())) {
-                    continue;
-                }
-
-                String filterSize = filters.get("size");
-                if(filterSize!=null
-                        && !filterSize.equals(notebook.getSize())) {
-                    continue;
-                }
-
-                String filterOperativeMemory = filters.get("operativeMemory");
-                if(filterOperativeMemory!=null
-                        && !filterOperativeMemory.equals(notebook.getOperativeMemory())) {
-                    continue;
-                }
-
-                String filterHardDisk = filters.get("hardDisk");
-                if(filterHardDisk!=null
-                        && !filterHardDisk.equals(notebook.getHardDisk())) {
-                    continue;
-                }
-
-                String filterSystem = filters.get("system");
-                if(filterSystem!=null
-                        && !filterSystem.equals(notebook.getMySystem())) {
-                    continue;
-                }
-
-                String filterColor = filters.get("color");
-                if(filterColor!=null
-                        && !filterColor.equals(notebook.getColor())) {
-                    continue;
-                }
-                finalShop.add(notebook);
+        for (NoteBook notebook : product) {
+            String filterBrand = filters.get("brand");
+            if (filterBrand != null
+                    && !filterBrand.equals(notebook.getBrand())) {
+                continue;
             }
 
-        return finalShop;
+            String filterModel = filters.get("model");
+            if (filterModel != null
+                    && !filterModel.equals(notebook.getModel())) {
+                continue;
+            }
+
+            String filterSize = filters.get("size");
+            if (filterSize != null
+                    && !filterSize.equals(notebook.getSize())) {
+                continue;
+            }
+
+            String filterOperativeMemory = filters.get("operativeMemory");
+            if (filterOperativeMemory != null
+                    && !filterOperativeMemory.equals(notebook.getOperativeMemory())) {
+                continue;
+            }
+
+            String filterHardDisk = filters.get("hardDisk");
+            if (filterHardDisk != null
+                    && !filterHardDisk.equals(notebook.getHardDisk())) {
+                continue;
+            }
+
+            String filterSystem = filters.get("system");
+            if (filterSystem != null
+                    && !filterSystem.equals(notebook.getMySystem())) {
+                continue;
+            }
+
+            String filterColor = filters.get("color");
+            if (filterColor != null
+                    && !filterColor.equals(notebook.getColor())) {
+                continue;
+            }
+            productSelection.add(notebook);
+        }
+
+        return productSelection;
     }
 }

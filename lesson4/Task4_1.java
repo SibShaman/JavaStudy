@@ -19,9 +19,9 @@ public class Task4_1 {
 
     }
 
-    public static LinkedList<Integer> reverseLinkedList(LinkedList<Integer> list){
+    public static LinkedList<Integer> reverseLinkedList(LinkedList<Integer> list) {
         LinkedList<Integer> reverseList = new LinkedList<>();
-        for (int i = list.size()-1; i >= 0 ; i--) {
+        for (int i = list.size() - 1; i >= 0; i--) {
             reverseList.add(list.get(i));
         }
         return reverseList;

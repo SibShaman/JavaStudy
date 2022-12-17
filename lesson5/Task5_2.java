@@ -1,6 +1,7 @@
 package lesson5;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 //Пусть дан список сотрудников: Иван, Пётр, Антон и так далее.
 //Написать программу, которая найдет и выведет повторяющиеся имена с количеством повторений.
@@ -11,7 +12,7 @@ public class Task5_2 {
                 "Антон", "Иван", "Антон", "Иван", "Петр", "Антон", "Сергей", "Антон", "Антон"};
         HashMap<String, Integer> workers = new HashMap<>();
         for (String i : nameWorkers) {
-            int newValue = workers.getOrDefault(i,0)+1;
+            int newValue = workers.getOrDefault(i, 0) + 1;
             workers.put(i, newValue);
         }
         System.out.println(workers);

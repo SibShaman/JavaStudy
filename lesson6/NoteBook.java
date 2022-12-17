@@ -1,6 +1,5 @@
 package lesson6;
 
-import java.util.List;
 import java.util.Objects;
 
 public class NoteBook {
@@ -22,13 +21,33 @@ public class NoteBook {
         this.color = color;
     }
 
-    public String getBrand() {return brand;}
-    public String getModel() {return model;}
-    public String getSize() {return size;}
-    public String getOperativeMemory() {return operativeMemory;}
-    public String getHardDisk() {return hardDisk;}
-    public String getMySystem() {return mySystem;}
-    public String getColor() {return color;}
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getOperativeMemory() {
+        return operativeMemory;
+    }
+
+    public String getHardDisk() {
+        return hardDisk;
+    }
+
+    public String getMySystem() {
+        return mySystem;
+    }
+
+    public String getColor() {
+        return color;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -52,7 +71,7 @@ public class NoteBook {
                 ", operativeMemory='" + operativeMemory + '\'' +
                 ", hardDisk='" + hardDisk + '\'' +
                 ", mySystem='" + mySystem + '\'' +
-                ", color='" + color + '\''  +
+                ", color='" + color + '\'' +
                 '}' + '\n';
     }
 }

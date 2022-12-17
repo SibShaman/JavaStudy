@@ -6,17 +6,16 @@ import java.util.Arrays;
 
 public class Task5_3 {
     private static int LEFT(int i) {
-        return (2*i + 1);
+        return (2 * i + 1);
     }
 
     // вернуть правого потомка `A[i]`
     private static int RIGHT(int i) {
-        return (2*i + 2);
+        return (2 * i + 2);
     }
 
     // Вспомогательная функция для замены двух индексов в массиве
-    private static void swap(int[] A, int i, int j)
-    {
+    private static void swap(int[] A, int i, int j) {
         int temp = A[i];
         A[i] = A[j];
         A[j] = temp;
@@ -24,8 +23,7 @@ public class Task5_3 {
 
     // Рекурсивный алгоритм heapify-down. Узел с индексом `i` и
     // два его прямых потомка нарушают свойство кучи
-    private static void heapify(int[] A, int i, int size)
-    {
+    private static void heapify(int[] A, int i, int size) {
         // получить левый и правый потомки узла с индексом `i`
         int left = LEFT(i);
         int right = RIGHT(i);
@@ -41,16 +39,14 @@ public class Task5_3 {
         }
         // поменяться местами с потомком, имеющим большее значение и
         // вызовите heapify-down для дочернего элемента
-        if (largest != i)
-        {
+        if (largest != i) {
             swap(A, i, largest);
             heapify(A, largest, size);
         }
     }
 
     // Функция для удаления элемента с наивысшим приоритетом (присутствует в корне)
-    public static int pop(int[] A, int size)
-    {
+    public static int pop(int[] A, int size) {
         // если в куче нет элементов
         if (size <= 0) {
             return -1;
@@ -59,7 +55,7 @@ public class Task5_3 {
         int top = A[0];
 
         // заменяем корень кучи последним элементом массива
-        A[0] = A[size-1];
+        A[0] = A[size - 1];
 
         // вызовите heapify-down на корневом узле
         heapify(A, 0, size - 1);
@@ -68,8 +64,7 @@ public class Task5_3 {
     }
 
     // Функция для выполнения пирамидальной сортировки массива `A` размера `n`
-    public static void heapsort(int[] A)
-    {
+    public static void heapsort(int[] A) {
         // строим приоритетную очередь и инициализируем ее заданным массивом
         int n = A.length;
 
@@ -80,16 +75,14 @@ public class Task5_3 {
             heapify(A, i--, n);
         }
         // несколько раз извлекаем из кучи, пока она не станет пустой
-        while (n > 0)
-        {
+        while (n > 0) {
             A[n - 1] = pop(A, n);
             n--;
         }
     }
 
-    public static void main(String[] args)
-    {
-        int[] A = { 6, 4, 7, 1, 9, -2 };
+    public static void main(String[] args) {
+        int[] A = {6, 4, 7, 1, 9, -2};
         // выполняем иерархическую сортировку массива
         heapsort(A);
         // печатаем отсортированный массив
