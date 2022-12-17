@@ -24,8 +24,9 @@ public class Task6_1 {
         HashSet<NoteBook> shop = new HashSet<>();
         addNoteBook(shop);
         HashMap<String, String> filters = new HashMap<>();
-        System.out.println(menu(filters));
+        menu(filters);
 //        System.out.println(shop);
+        System.out.println(filters);
     }
     public static HashSet<NoteBook> addNoteBook(HashSet<NoteBook> addshop){
         NoteBook LenovoNS = new NoteBook("Lenovo", "NS2332", "15", "8Gb", "1TB", "Linux", "black");
@@ -98,4 +99,21 @@ public class Task6_1 {
         return filters;
     }
 
+
+
+    public static HashSet<NoteBook> doFilter(HashSet<NoteBook> shop, HashMap<String,String> filters){
+        for (NoteBook noteBook:shop){
+            String filterBrand = filters.get("brand");
+//            for(NoteBook notebook: shop){
+//                filterBrand.equals(notebook.getBrand())
+//            }
+
+
+        }
+
+
+
+
+        return shop;
+    }
 }
