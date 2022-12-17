@@ -25,18 +25,18 @@ public class Task6_1 {
         System.out.println(doFilter(shop,filters));
     }
 
-    public static HashSet<NoteBook> addNoteBook(HashSet<NoteBook> addshop){
+    public static HashSet<NoteBook> addNoteBook(HashSet<NoteBook> addShop){
         NoteBook LenovoNS = new NoteBook("Lenovo", "NS2332", "15", "8Gb", "1TB", "Linux", "black");
         NoteBook Mac = new NoteBook("Apple", "MacBook Pro", "14", "16Gb", "1TB", "Unix", "grey");
         NoteBook Huawei = new NoteBook("Huawei", "MateBook", "15", "16Gb", "2TB", "Windows10", "grey");
         NoteBook Asus = new NoteBook("ASUS", "ZenBook Flip", "13", "8Gb", "512GB", "Windows10", "blue");
 
-        addshop.add(LenovoNS);
-        addshop.add(Mac);
-        addshop.add(Huawei);
-        addshop.add(Asus);
+        addShop.add(LenovoNS);
+        addShop.add(Mac);
+        addShop.add(Huawei);
+        addShop.add(Asus);
 
-        return addshop;
+        return addShop;
     }
 
     public static HashMap<String,String> menu(HashMap<String,String> filters){
@@ -87,7 +87,7 @@ public class Task6_1 {
     }
 
     public static List<NoteBook> doFilter(HashSet<NoteBook> shop, HashMap<String,String> filters){
-            List<NoteBook> finalshop = new ArrayList<>();
+            List<NoteBook> finalShop = new ArrayList<>();
 
             for(NoteBook notebook: shop){
                 String filterBrand = filters.get("brand");
@@ -131,9 +131,9 @@ public class Task6_1 {
                         && !filterColor.equals(notebook.getColor())) {
                     continue;
                 }
-                finalshop.add(notebook);
+                finalShop.add(notebook);
             }
 
-        return finalshop;
+        return finalShop;
     }
 }
