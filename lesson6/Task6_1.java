@@ -14,10 +14,7 @@ package lesson6;
 //Далее нужно запросить минимальные значения для указанных критериев - сохранить параметры фильтрации можно также в Map.
 //Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
 
-import java.util.Map;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class Task6_1 {
     public static void main(String[] args) {
@@ -25,9 +22,9 @@ public class Task6_1 {
         addNoteBook(shop);
         HashMap<String, String> filters = new HashMap<>();
         menu(filters);
-//        System.out.println(shop);
-        System.out.println(filters);
+        System.out.println(doFilter(shop,filters));
     }
+
     public static HashSet<NoteBook> addNoteBook(HashSet<NoteBook> addshop){
         NoteBook LenovoNS = new NoteBook("Lenovo", "NS2332", "15", "8Gb", "1TB", "Linux", "black");
         NoteBook Mac = new NoteBook("Apple", "MacBook Pro", "14", "16Gb", "1TB", "Unix", "grey");
@@ -41,16 +38,6 @@ public class Task6_1 {
 
         return addshop;
     }
-
-    //Написать метод, который будет запрашивать у пользователя критерий (или критерии) фильтрации и выведет ноутбуки,
-    // отвечающие фильтру. Критерии фильтрации можно хранить в Map. Например:
-    //“Введите цифру, соответствующую необходимому критерию:
-    //1 - ОЗУ
-    //2 - Объем ЖД
-    //3 - Операционная система
-    //4 - Цвет …
-    //Далее нужно запросить минимальные значения для указанных критериев - сохранить параметры фильтрации можно также в Map.
-    //Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
 
     public static HashMap<String,String> menu(HashMap<String,String> filters){
         Scanner ch = new Scanner(System.in);
@@ -99,21 +86,54 @@ public class Task6_1 {
         return filters;
     }
 
+    public static List<NoteBook> doFilter(HashSet<NoteBook> shop, HashMap<String,String> filters){
+            List<NoteBook> finalshop = new ArrayList<>();
 
+            for(NoteBook notebook: shop){
+                String filterBrand = filters.get("brand");
+                if(filterBrand!=null
+                  && !filterBrand.equals(notebook.getBrand())) {
+                    continue;
+                }
 
-    public static HashSet<NoteBook> doFilter(HashSet<NoteBook> shop, HashMap<String,String> filters){
-        for (NoteBook noteBook:shop){
-            String filterBrand = filters.get("brand");
-//            for(NoteBook notebook: shop){
-//                filterBrand.equals(notebook.getBrand())
-//            }
+                String filterModel = filters.get("model");
+                if(filterModel!=null
+                        && !filterModel.equals(notebook.getModel())) {
+                    continue;
+                }
 
+                String filterSize = filters.get("size");
+                if(filterSize!=null
+                        && !filterSize.equals(notebook.getSize())) {
+                    continue;
+                }
 
-        }
+                String filterOperativeMemory = filters.get("operativeMemory");
+                if(filterOperativeMemory!=null
+                        && !filterOperativeMemory.equals(notebook.getOperativeMemory())) {
+                    continue;
+                }
 
+                String filterHardDisk = filters.get("hardDisk");
+                if(filterHardDisk!=null
+                        && !filterHardDisk.equals(notebook.getHardDisk())) {
+                    continue;
+                }
 
+                String filterSystem = filters.get("system");
+                if(filterSystem!=null
+                        && !filterSystem.equals(notebook.getMySystem())) {
+                    continue;
+                }
 
+                String filterColor = filters.get("color");
+                if(filterColor!=null
+                        && !filterColor.equals(notebook.getColor())) {
+                    continue;
+                }
+                finalshop.add(notebook);
+            }
 
-        return shop;
+        return finalshop;
     }
 }
